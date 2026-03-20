@@ -1,0 +1,1202 @@
+
+Esteban Rivera
+12:05 PM (0 minutes ago)
+to me
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italy Honeymoon · Emily & Estee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F8F3EC;
+    --sand: #E8DDCC;
+    --terracotta: #C4703F;
+    --rust: #9E3D1B;
+    --olive: #6B7C52;
+    --sage: #A3B18A;
+    --dusk: #3A3228;
+    --gold: #C9A96E;
+    --water: #5B8FA8;
+    --sky: #D4E8F0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--dusk);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--dusk);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(196,112,63,0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 20%, rgba(91,143,168,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 80% 10%, rgba(163,177,138,0.15) 0%, transparent 50%);
+  }
+
+  /* Landscape silhouette */
+  .landscape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 15vh;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 0.9;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--sand);
+    margin-bottom: 0.75rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+  }
+
+  .hero-dates {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--sage);
+    opacity: 0;
+    animation: fadeUp 1s 0.9s forwards;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--sand);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1s 1.3s forwards;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--gold));
+    animation: scrollLine 2s 1.5s infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.4); opacity: 0.4; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* NAVIGATION TABS */
+  .nav-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--dusk);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    overflow-x: auto;
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+  }
+
+  .nav-tab {
+    padding: 1rem 1.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sand);
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+    white-space: nowrap;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+  }
+
+  .nav-tab:hover { color: var(--gold); }
+  .nav-tab.active {
+    color: var(--gold);
+    border-bottom-color: var(--terracotta);
+  }
+
+  /* SECTIONS */
+  .section {
+    display: none;
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    animation: fadeUp 0.5s forwards;
+  }
+  .section.active { display: block; }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--dusk);
+    line-height: 1.1;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  /* ITINERARY TIMELINE */
+  .timeline {
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 100px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--sand), transparent);
+  }
+
+  .day-card {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .day-number {
+    text-align: right;
+    padding-top: 0.25rem;
+  }
+
+  .day-num-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--sand);
+    line-height: 1;
+  }
+
+  .day-num-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+
+  .day-dot {
+    position: absolute;
+    left: 96px;
+    top: 8px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 1px var(--terracotta);
+  }
+
+  .day-content {
+    background: white;
+    border-radius: 2px;
+    padding: 1.5rem;
+    border-left: 3px solid var(--sand);
+    transition: border-color 0.3s;
+  }
+
+  .day-content:hover {
+    border-left-color: var(--terracotta);
+  }
+
+  .day-date {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+  }
+
+  .day-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    color: var(--dusk);
+  }
+
+  .day-activities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .activity-tag {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    background: var(--cream);
+    color: var(--dusk);
+    border: 1px solid var(--sand);
+  }
+
+  .activity-tag.food { background: #FFF5EC; border-color: var(--terracotta); color: var(--rust); }
+  .activity-tag.sight { background: #F0F5EC; border-color: var(--olive); color: var(--olive); }
+  .activity-tag.travel { background: var(--sky); border-color: var(--water); color: #3A6B85; }
+
+  /* LOCATION PHASES */
+  .phase-band {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .phase-band.florence { background: #F5EDDE; color: var(--rust); border-left: 3px solid var(--terracotta); }
+  .phase-band.tuscany { background: #EEF2E8; color: var(--olive); border-left: 3px solid var(--sage); }
+  .phase-band.amalfi { background: var(--sky); color: #3A6B85; border-left: 3px solid var(--water); }
+
+  /* CHECKLIST */
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .checklist-month {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 2px;
+  }
+
+  .checklist-month-header {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--dusk);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #F5F0EA;
+    cursor: pointer;
+  }
+
+  .checklist-item:last-child { border-bottom: none; }
+
+  .check-box {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--sand);
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: white;
+  }
+
+  .checklist-item.checked .check-box {
+    background: var(--olive);
+    border-color: var(--olive);
+  }
+
+  .checklist-item.checked .check-text {
+    text-decoration: line-through;
+    color: var(--sage);
+  }
+
+  .check-text { font-size: 0.8rem; line-height: 1.4; }
+
+  .progress-bar-wrap {
+    background: var(--sand);
+    height: 3px;
+    border-radius: 2px;
+    margin-top: 1rem;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--olive);
+    border-radius: 2px;
+    transition: width 0.4s;
+  }
+
+  .progress-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--olive);
+    margin-top: 0.4rem;
+    text-align: right;
+  }
+
+  /* TIPS */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .tip-card {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 2px;
+    border-top: 3px solid var(--gold);
+  }
+
+  .tip-icon { font-size: 1.25rem; margin-bottom: 0.5rem; }
+  .tip-text { font-size: 0.8rem; line-height: 1.5; }
+
+  /* PHRASES */
+  .phrases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .phrase-card {
+    background: var(--dusk);
+    color: var(--cream);
+    padding: 1.25rem;
+    border-radius: 2px;
+    text-align: center;
+  }
+
+  .phrase-italian {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .phrase-english { font-size: 0.75rem; color: var(--sand); letter-spacing: 0.05em; }
+
+  /* ROUTE */
+  .route-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 600px;
+  }
+
+  .route-stop {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .route-dot-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30px;
+    flex-shrink: 0;
+  }
+
+  .route-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--terracotta);
+    background: white;
+    flex-shrink: 0;
+  }
+
+  .route-dot.filled { background: var(--terracotta); }
+
+  .route-line {
+    width: 1px;
+    height: 40px;
+    background: var(--sand);
+  }
+
+  .route-info {
+    padding: 0.5rem 0;
+  }
+
+  .route-city {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--dusk);
+  }
+
+  .route-detail {
+    font-size: 0.7rem;
+    color: var(--terracotta);
+    letter-spacing: 0.1em;
+  }
+
+  /* EXCURSIONS */
+  .excursion-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .excursion-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-radius: 2px;
+    border-bottom: 3px solid var(--sand);
+    transition: border-color 0.3s;
+  }
+
+  .excursion-card:hover { border-bottom-color: var(--terracotta); }
+
+  .excursion-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .excursion-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .excursion-desc { font-size: 0.75rem; color: #7A7068; line-height: 1.5; }
+
+  /* Footer */
+  footer {
+    background: var(--dusk);
+    color: var(--sand);
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  footer .footer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  footer p { font-size: 0.75rem; letter-spacing: 0.15em; opacity: 0.6; }
+
+  @media (max-width: 600px) {
+    .timeline::before { left: 60px; }
+    .day-card { grid-template-columns: 50px 1fr; gap: 1rem; }
+    .day-dot { left: 56px; }
+    .day-num-big { font-size: 1.8rem; }
+    .nav-tab { padding: 1rem 0.8rem; font-size: 0.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="landscape" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Sky gradient bg -->
+    <defs>
+      <linearGradient id="hillGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#4A3E32"/>
+        <stop offset="100%" stop-color="#2A2218"/>
+      </linearGradient>
+      <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#3A6080"/>
+        <stop offset="100%" stop-color="#1E3D52"/>
+      </linearGradient>
+    </defs>
+    <!-- Rolling hills -->
+    <path d="M0 300 Q180 200 360 240 Q540 280 720 200 Q900 120 1080 180 Q1260 240 1440 160 L1440 400 L0 400Z" fill="url(#hillGrad)" opacity="0.8"/>
+    <path d="M0 350 Q200 280 400 310 Q600 340 800 270 Q1000 200 1200 250 Q1350 290 1440 240 L1440 400 L0 400Z" fill="#2A2218" opacity="0.9"/>
+    <!-- Cypress trees -->
+    <g fill="#1A1510">
+      <ellipse cx="200" cy="295" rx="6" ry="25"/>
+      <ellipse cx="215" cy="290" rx="5" ry="22"/>
+      <ellipse cx="850" cy="255" rx="5" ry="20"/>
+      <ellipse cx="863" cy="250" rx="4" ry="18"/>
+      <ellipse cx="876" cy="252" rx="5" ry="19"/>
+      <ellipse cx="1100" cy="245" rx="6" ry="22"/>
+      <ellipse cx="1115" cy="240" rx="5" ry="20"/>
+      <ellipse cx="1300" cy="260" rx="5" ry="18"/>
+    </g>
+    <!-- Small village dots -->
+    <rect x="380" y="235" width="15" height="10" fill="#C4703F" opacity="0.6" rx="1"/>
+    <rect x="970" y="215" width="18" height="12" fill="#9E6030" opacity="0.5" rx="1"/>
+    <!-- Water reflection at bottom -->
+    <path d="M0 380 Q360 360 720 370 Q1080 380 1440 365 L1440 400 L0 400Z" fill="url(#waterGrad)" opacity="0.6"/>
+  </svg>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Honeymoon Planning</p>
+    <h1 class="hero-title">La <em>Dolce</em><br>Vita</h1>
+    <p class="hero-names">Emily & Estee ♡</p>
+    <p class="hero-dates">May 31 – June 13, 2026 &nbsp;·&nbsp; Tuscany & Amalfi Coast</p>
+  </div>
+  <div class="scroll-hint">
+    <span>Explore</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- NAVIGATION -->
+<nav class="nav-tabs">
+  <button class="nav-tab active" onclick="showSection('itinerary', this)">Itinerary</button>
+  <button class="nav-tab" onclick="showSection('route', this)">Route</button>
+  <button class="nav-tab" onclick="showSection('checklist', this)">Checklist</button>
+  <button class="nav-tab" onclick="showSection('excursions', this)">Excursions</button>
+  <button class="nav-tab" onclick="showSection('tips', this)">Tips & Phrases</button>
+</nav>
+
+<!-- ITINERARY SECTION -->
+<div id="itinerary" class="section active">
+  <div class="section-header">
+    <p class="section-label">Day by Day</p>
+    <h2 class="section-title">The <em>Itinerary</em></h2>
+  </div>
+
+  <div class="timeline">
+    <div class="phase-band florence">🏛 Florence — Arrival</div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">1</div>
+        <div class="day-num-label">May 31</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">May 31, 2026 · New York → Paris</div>
+        <div class="day-title">Departure Day</div>
+        <div class="day-activities">
+          <span class="activity-tag travel">🏠 2:30 PM — Depart LIC apt</span>
+          <span class="activity-tag travel">🚗 3:00 PM — Arrive Newark</span>
+          <span class="activity-tag travel">✈ 5:00 PM — Depart EWR</span>
+          <span class="activity-tag travel">Air France 8758</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">2</div>
+        <div class="day-num-label">June 1</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 1, 2026 · Paris → Florence</div>
+        <div class="day-title">Arrive in Florence</div>
+        <div class="day-activities">
+          <span class="activity-tag travel">✈ 10:20 AM — Depart Paris (Air France 8483)</span>
+          <span class="activity-tag travel">🛬 12:05 PM — Land Florence</span>
+          <span class="activity-tag travel">🚕 Uber to hotel</span>
+          <span class="activity-tag food">🍕 Lunch — Gustapizza, Via Maggio 46r</span>
+          <span class="activity-tag food">🍽 Dinner — The Place Firenze Restaurant</span>
+          <span class="activity-tag sight">🏨 Stay: The Place Firenze, Piazza Santa Maria Novella 7</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">3</div>
+        <div class="day-num-label">June 2</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 2, 2026 · Florence → Tuscany</div>
+        <div class="day-title">Florence Day & Drive to Tuscany</div>
+        <div class="day-activities">
+          <span class="activity-tag sight">😴 10–11 AM — Sleep in (jet lag)</span>
+          <span class="activity-tag food">🥐 Breakfast at The Place Firenze</span>
+          <span class="activity-tag sight">🏛 1:00 PM — Uffizi Gallery</span>
+          <span class="activity-tag sight">🚶 Walk Florence (Lia's suggestions)</span>
+          <span class="activity-tag food">🍦 Vivoli — affogato</span>
+          <span class="activity-tag food">🍸 Aperitivo</span>
+          <span class="activity-tag food">🍝 Trattoria 13 Gobbi — rigatoni</span>
+          <span class="activity-tag food">🥪 All'Antico / Panino Toscana — paninis</span>
+          <span class="activity-tag food">🍝 Trattoria Zazà — carbonara</span>
+          <span class="activity-tag travel">🏨 4:00 PM — Check out of hotel</span>
+          <span class="activity-tag travel">🚕 Uber to Firenze Peretola Airport</span>
+          <span class="activity-tag travel">🚗 4:00 PM — Pick up rental car</span>
+          <span class="activity-tag travel">🛣 ~1hr 15min drive</span>
+          <span class="activity-tag sight">📍 5:15 PM — Arrive Sinalunga Airbnb, Tuscany</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-band tuscany">🌿 Tuscany — Sinalunga</div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">4</div>
+        <div class="day-num-label">June 3</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 3, 2026 · Tuscany</div>
+        <div class="day-title">First Full Day in Tuscany</div>
+        <div class="day-activities">
+          <span class="activity-tag food">🍷 Wine tasting in the hills</span>
+          <span class="activity-tag food">🍽 8:00 PM — Dinner @ Lupaia Restaurant</span>
+          <span class="activity-tag sight">📍 Località Lupaia 74, Torrita Di Siena</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">5–7</div>
+        <div class="day-num-label">June 4–6</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 4–6, 2026 · Tuscany</div>
+        <div class="day-title">Tuscany Days</div>
+        <div class="day-activities">
+          <span class="activity-tag food">🍷 Wine tasting (x1000)</span>
+          <span class="activity-tag food">🍝 Pasta making class</span>
+          <span class="activity-tag sight">🏰 Villages & countryside</span>
+          <span class="activity-tag sight">🫒 Rolling hills & vineyards</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">8</div>
+        <div class="day-num-label">June 7</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 7, 2026 · Tuscany → Amalfi Coast</div>
+        <div class="day-title">The Big Transfer Day</div>
+        <div class="day-activities">
+          <span class="activity-tag travel">🚗 8:00 AM — Leave Airbnb → Rome Fiumicino</span>
+          <span class="activity-tag travel">🚗 10:30 AM — Drop off rental car at FCO</span>
+          <span class="activity-tag travel">🚆 Air train: FCO → Roma Termini</span>
+          <span class="activity-tag travel">🚄 12:00 PM — Train Rome → Salerno</span>
+          <span class="activity-tag travel">🚘 Private driver: Salerno → Monastero Santa Rosa</span>
+          <span class="activity-tag sight">🏨 3:00 PM — Check in: Monastero Santa Rosa</span>
+          <span class="activity-tag sight">📍 Via Roma 2, Conca dei Marini</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-band amalfi">⛵ Amalfi Coast — Monastero Santa Rosa & Praiano</div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">9</div>
+        <div class="day-num-label">June 8</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 8, 2026 · Conca dei Marini</div>
+        <div class="day-title">Monastero Santa Rosa</div>
+        <div class="day-activities">
+          <span class="activity-tag sight">🌊 Amalfi Coast views</span>
+          <span class="activity-tag sight">🏛 Explore Conca dei Marini</span>
+          <span class="activity-tag food">🍋 Sfogliatella & limoncello</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">10</div>
+        <div class="day-num-label">June 9</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 9, 2026 · Praiano</div>
+        <div class="day-title">Romantic Stay in Praiano</div>
+        <div class="day-activities">
+          <span class="activity-tag sight">📍 Move to Praiano accommodation</span>
+          <span class="activity-tag sight">🌅 Cliffside village life</span>
+          <span class="activity-tag travel">🧗 Steps service booked for luggage</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">11–12</div>
+        <div class="day-num-label">June 10–11</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 10–11, 2026 · Amalfi</div>
+        <div class="day-title">Amalfi Days</div>
+        <div class="day-activities">
+          <span class="activity-tag travel">⛵ Boat day along the coast</span>
+          <span class="activity-tag sight">🍋 Positano day trip</span>
+          <span class="activity-tag food">🐟 Fresh seafood</span>
+          <span class="activity-tag sight">🌅 Golden hour sunsets</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">13</div>
+        <div class="day-num-label">June 12</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 12, 2026 · Amalfi</div>
+        <div class="day-title">Last Night on the Coast</div>
+        <div class="day-activities">
+          <span class="activity-tag sight">🌊 Final beach time</span>
+          <span class="activity-tag food">🍽 7:30 PM — Dinner @ Il Pirata</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">14</div>
+        <div class="day-num-label">June 13</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 13, 2026 · Naples → Home</div>
+        <div class="day-title">Arrivederci, Italia</div>
+        <div class="day-activities">
+          <span class="activity-tag travel">✈ 11:40 AM — Depart Naples (NAP)</span>
+          <span class="activity-tag travel">Aer Lingus 451 → Dublin</span>
+          <span class="activity-tag travel">Aer Lingus 107 → NYC</span>
+          <span class="activity-tag travel">🛬 4:45 PM — Arrive Dublin (connecting)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROUTE SECTION -->
+<div id="route" class="section">
+  <div class="section-header">
+    <p class="section-label">How you're getting there</p>
+    <h2 class="section-title">The <em>Route</em></h2>
+  </div>
+  <div class="route-list">
+    <div class="route-stop">
+      <div class="route-dot-col">
+        <div class="route-dot filled"></div>
+        <div class="route-line"></div>
+      </div>
+      <div class="route-info">
+        <div class="route-city">New York (EWR)</div>
+        <div class="route-detail">Depart May 31 · 5:00 PM · Air France 8758</div>
+      </div>
+    </div>
+    <div class="route-stop">
+      <div class="route-dot-col">
+        <div class="route-dot"></div>
+        <div class="route-line"></div>
+      </div>
+      <div class="route-info">
+        <div class="route-city">Paris (CDG)</div>
+        <div class="route-detail">Layover — Depart 10:20 AM · Air France 8483</div>
+      </div>
+    </div>
+    <div class="route-stop">
+      <div class="route-dot-col">
+        <div class="route-dot"></div>
+        <div class="route-line"></div>
+      </div>
+      <div class="route-info">
+        <div class="route-city">Florence (Vespucci)</div>
+        <div class="route-detail">Arrive June 1 · 12:05 PM · 2 nights @ The Place Firenze</div>
+      </div>
+    </div>
+    <div class="route-stop">
+      <div class="route-dot-col">
+        <div class="route-dot"></div>
+        <div class="route-line"></div>
+      </div>
+      <div class="route-info">
+        <div class="route-city">Tuscany — Sinalunga</div>
+        <div class="route-detail">June 2 · Rental car from Peretola Airport · ~1hr 15min · 5 nights</div>
+      </div>
+    </div>
+    <div class="route-stop">
+      <div class="route-dot-col">
+        <div class="route-dot"></div>
+        <div class="route-line"></div>
+      </div>
+      <div class="route-info">
+        <div class="route-city">Rome Fiumicino (FCO)</div>
+        <div class="route-detail">June 7 · 10:30 AM car drop · Air train → Roma Termini</div>
+      </div>
+    </div>
+    <div class="route-stop">
+      <div class="route-dot-col">
+        <div class="route-dot"></div>
+        <div class="route-line"></div>
+      </div>
+      <div class="route-info">
+        <div class="route-city">Salerno</div>
+        <div class="route-detail">Train from Roma Termini · 12:00 PM · Private driver to hotel</div>
+      </div>
+    </div>
+    <div class="route-stop">
+      <div class="route-dot-col">
+        <div class="route-dot"></div>
+        <div class="route-line"></div>
+      </div>
+      <div class="route-info">
+        <div class="route-city">Monastero Santa Rosa</div>
+        <div class="route-detail">June 7 · Check in 3 PM · Conca dei Marini</div>
+      </div>
+    </div>
+    <div class="route-stop">
+      <div class="route-dot-col">
+        <div class="route-dot"></div>
+        <div class="route-line"></div>
+      </div>
+      <div class="route-info">
+        <div class="route-city">Praiano</div>
+        <div class="route-detail">June 9 · Romantic cliffside stay</div>
+      </div>
+    </div>
+    <div class="route-stop">
+      <div class="route-dot-col">
+        <div class="route-dot filled"></div>
+        <div class="route-line" style="background: transparent;"></div>
+      </div>
+      <div class="route-info">
+        <div class="route-city">Naples → Dublin → New York</div>
+        <div class="route-detail">June 13 · 11:40 AM NAP · Aer Lingus 451 → Dublin · Aer Lingus 107 → JFK</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKLIST SECTION -->
+<div id="checklist" class="section">
+  <div class="section-header">
+    <p class="section-label">Planning Timeline</p>
+    <h2 class="section-title">The <em>Checklist</em></h2>
+  </div>
+  <div class="checklist-grid" id="checklistGrid"></div>
+</div>
+
+<!-- EXCURSIONS SECTION -->
+<div id="excursions" class="section">
+  <div class="section-header">
+    <p class="section-label">Things to do</p>
+    <h2 class="section-title"><em>Esperienze</em> & Excursions</h2>
+  </div>
+  <div class="excursion-cards">
+    <div class="excursion-card">
+      <div class="excursion-icon">🍝</div>
+      <div class="excursion-title">Pasta Making</div>
+      <div class="excursion-desc">Learn to make fresh pasta from a local nonna — one of the most memorable Tuscany experiences.</div>
+    </div>
+    <div class="excursion-card">
+      <div class="excursion-icon">🍷</div>
+      <div class="excursion-title">Wine Tasting</div>
+      <div class="excursion-desc">Wine tasting in Chianti or Montepulciano — book multiple! Brunello & Vino Nobile are unmissable.</div>
+    </div>
+    <div class="excursion-card">
+      <div class="excursion-icon">⛵</div>
+      <div class="excursion-title">Amalfi Boat Day</div>
+      <div class="excursion-desc">Private or group boat charter along the coast — grottos, swimming, and views of Positano from the water.</div>
+    </div>
+    <div class="excursion-card">
+      <div class="excursion-icon">📸</div>
+      <div class="excursion-title">Photographer</div>
+      <div class="excursion-desc">(Optional) Book a local photographer for a golden-hour session in the hills or along the Amalfi cliffside.</div>
+    </div>
+    <div class="excursion-card">
+      <div class="excursion-icon">🧗</div>
+      <div class="excursion-title">Praiano Steps Service</div>
+      <div class="excursion-desc">Find/book a service to help with luggage on Praiano's famous steep staircase descents.</div>
+    </div>
+    <div class="excursion-card">
+      <div class="excursion-icon">🏛</div>
+      <div class="excursion-title">Uffizi Gallery</div>
+      <div class="excursion-desc">Pre-book tickets! Home to Botticelli's Birth of Venus and rooms of Renaissance masterworks.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TIPS & PHRASES SECTION -->
+<div id="tips" class="section">
+  <div class="section-header">
+    <p class="section-label">Good to know</p>
+    <h2 class="section-title">Tips & <em>Frasi Italiane</em></h2>
+  </div>
+
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">✈️</div><div class="tip-text"><strong>Book flights on Tuesday</strong> for the best fares.</div></div>
+    <div class="tip-card"><div class="tip-icon">⏱</div><div class="tip-text"><strong>Layover 1–4 hours max</strong> — don't cut it too close.</div></div>
+    <div class="tip-card"><div class="tip-icon">🚂</div><div class="tip-text"><strong>Use trains</strong> for intercity travel — fast, scenic, affordable.</div></div>
+    <div class="tip-card"><div class="tip-icon">💶</div><div class="tip-text"><strong>Get Euros at the airport</strong> — avoid currency exchange booths.</div></div>
+    <div class="tip-card"><div class="tip-icon">💳</div><div class="tip-text"><strong>Choose local currency</strong> when card machines ask — avoids bad rates.</div></div>
+    <div class="tip-card"><div class="tip-icon">💳</div><div class="tip-text"><strong>No foreign transaction fees</strong> — use a card like Chase Sapphire.</div></div>
+    <div class="tip-card"><div class="tip-icon">📱</div><div class="tip-text"><strong>Buy an eSIM via Airalo</strong> before you leave — cheap data abroad.</div></div>
+    <div class="tip-card"><div class="tip-icon">💧</div><div class="tip-text"><strong>Only bottled water</strong> — tap water is generally not ideal.</div></div>
+    <div class="tip-card"><div class="tip-icon">🧳</div><div class="tip-text"><strong>Pack 80% full</strong> — leave room for olive oil, wine, and ceramics.</div></div>
+  </div>
+
+  <div class="section-header" style="margin-top: 3rem;">
+    <p class="section-label">Useful vocabulary</p>
+    <h2 class="section-title">Parla <em>Italiano</em></h2>
+  </div>
+  <div class="phrases-grid">
+    <div class="phrase-card">
+      <div class="phrase-italian">Ciao</div>
+      <div class="phrase-english">Hi / Bye</div>
+    </div>
+    <div class="phrase-card">
+      <div class="phrase-italian">Vorrei una…</div>
+      <div class="phrase-english">I'll have a…</div>
+    </div>
+    <div class="phrase-card">
+      <div class="phrase-italian">Prego</div>
+      <div class="phrase-english">You're welcome</div>
+    </div>
+    <div class="phrase-card">
+      <div class="phrase-italian">Grazie</div>
+      <div class="phrase-english">Thank you</div>
+    </div>
+    <div class="phrase-card">
+      <div class="phrase-italian">Grazie mille</div>
+      <div class="phrase-english">Thank you very much</div>
+    </div>
+    <div class="phrase-card">
+      <div class="phrase-italian">Salute!</div>
+      <div class="phrase-english">Cheers!</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-title">Buon viaggio, amore</div>
+  <p>Emily & Estee · Italy Honeymoon · May–June 2026</p>
+</footer>
+
+<script>
+  // Tab navigation
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Checklist data
+  const checklistData = [
+    {
+      month: "Late November",
+      items: [
+        "Choose Tuscany location (Chianti vs Montepulciano)",
+        "Start flight tracking",
+        "Begin accommodation research"
+      ]
+    },
+    {
+      month: "Early December",
+      items: [
+        "Book flights",
+        "Narrow hotels/Airbnbs to top 3 per area"
+      ]
+    },
+    {
+      month: "Late December",
+      items: [
+        "Book all hotels / Airbnbs",
+        "Decide: car vs train/driver for transport"
+      ]
+    },
+    {
+      month: "Early January",
+      items: [
+        "Book rental car (if doing Tuscany by car)",
+        "Reserve private transfer from Chiusi to Monastero"
+      ]
+    },
+    {
+      month: "Late January",
+      items: [
+        "Purchase travel insurance (look into Allianz)",
+        "Secure airline seat selections"
+      ]
+    },
+    {
+      month: "February",
+      items: [
+        "Book wineries, cooking class & Amalfi Coast boat day",
+        "Start restaurant list",
+        "Book premium dining reservations (1–2 months ahead)",
+        "Find/book step assistance service for Praiano"
+      ]
+    },
+    {
+      month: "March",
+      items: [
+        "Build detailed day-by-day itinerary",
+        "Make restaurant reservations",
+        "Buy travel accessories",
+        "Book photographer (optional)"
+      ]
+    },
+    {
+      month: "Early April",
+      items: [
+        "Reconfirm all reservations",
+        "Check cancellation deadlines"
+      ]
+    },
+    {
+      month: "Late April",
+      items: [
+        "Make packing list",
+        "Buy trip supplies"
+      ]
+    },
+    {
+      month: "May (Weeks 1–3)",
+      items: [
+        "Final confirmations",
+        "Pack (80% full!)",
+        "Weather check",
+        "Airport prep / eSIM setup"
+      ]
+    }
+  ];
+
+  const savedState = JSON.parse(localStorage.getItem('italyChecklist') || '{}');
+
+  function buildChecklist() {
+    const grid = document.getElementById('checklistGrid');
+    grid.innerHTML = '';
+
+    checklistData.forEach((month, mi) => {
+      const card = document.createElement('div');
+      card.className = 'checklist-month';
+
+      const checked = month.items.filter((_, ii) => savedState[`${mi}-${ii}`]).length;
+      const pct = Math.round(checked / month.items.length * 100);
+
+      card.innerHTML = `
+        <div class="checklist-month-header">${month.month}</div>
+        ${month.items.map((item, ii) => `
+          <div class="checklist-item ${savedState[`${mi}-${ii}`] ? 'checked' : ''}" data-mi="${mi}" data-ii="${ii}">
+            <div class="check-box">${savedState[`${mi}-${ii}`] ? '✓' : ''}</div>
+            <span class="check-text">${item}</span>
+          </div>
+        `).join('')}
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+        <div class="progress-text">${checked}/${month.items.length} done</div>
+      `;
+
+      card.querySelectorAll('.checklist-item').forEach(el => {
+        el.addEventListener('click', () => {
+          const mi = el.dataset.mi, ii = el.dataset.ii;
+          const key = `${mi}-${ii}`;
+          savedState[key] = !savedState[key];
+          localStorage.setItem('italyChecklist', JSON.stringify(savedState));
+          buildChecklist();
+        });
+      });
+
+      grid.appendChild(card);
+    });
+  }
+
+  buildChecklist();
+</script>
+
+</body>
+</html>
