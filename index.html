@@ -572,6 +572,127 @@
     .day-num-big { font-size: 1.8rem; }
     .nav-tab { padding: 1rem 0.8rem; font-size: 0.6rem; }
   }
+  /* PACKING LIST */
+  .packing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .packing-category {
+    background: white;
+    border-radius: 2px;
+    padding: 1.5rem;
+  }
+
+  .packing-category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .packing-category-icon { font-size: 1.2rem; }
+
+  .packing-category-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--dusk);
+  }
+
+  .packing-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #F5F0EA;
+    cursor: pointer;
+  }
+
+  .packing-item:last-child { border-bottom: none; }
+
+  .packing-item .check-box {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--sand);
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: white;
+  }
+
+  .packing-item.packed .check-box {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+  }
+
+  .packing-item.packed .packing-text {
+    text-decoration: line-through;
+    color: var(--sage);
+  }
+
+  .packing-text { font-size: 0.8rem; line-height: 1.4; }
+
+  .packing-text .packing-note {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--terracotta);
+    margin-top: 0.15rem;
+    font-style: italic;
+  }
+
+  .packing-progress {
+    margin-top: 0.75rem;
+  }
+
+  .packing-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: 2px;
+    border-left: 3px solid var(--terracotta);
+  }
+
+  .packing-summary-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+
+  .packing-summary-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--dusk);
+  }
+
+  .packing-master-bar {
+    height: 4px;
+    background: var(--sand);
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  .packing-master-fill {
+    height: 100%;
+    background: var(--terracotta);
+    border-radius: 2px;
+    transition: width 0.4s;
+  }
+
 </style>
 </head>
 <body>
@@ -628,6 +749,7 @@
   <button class="nav-tab active" onclick="showSection('itinerary', this)">Itinerary</button>
   <button class="nav-tab" onclick="showSection('route', this)">Route</button>
   <button class="nav-tab" onclick="showSection('checklist', this)">Checklist</button>
+  <button class="nav-tab" onclick="showSection('packing', this)">Packing</button>
   <button class="nav-tab" onclick="showSection('excursions', this)">Excursions</button>
   <button class="nav-tab" onclick="showSection('tips', this)">Tips & Phrases</button>
 </nav>
@@ -674,7 +796,7 @@
           <span class="activity-tag travel">🛬 12:05 PM — Land Florence</span>
           <span class="activity-tag travel">🚕 Uber to hotel</span>
           <span class="activity-tag food">🍕 Lunch — Gustapizza, Via Maggio 46r</span>
-          <span class="activity-tag food">🍽 Dinner — The Place Firenze Restaurant</span>
+          <span class="activity-tag food">🍽 Dinner — The Place Firenze Restaurant + rooftop drinks</span>
           <span class="activity-tag sight">🏨 Stay: The Place Firenze, Piazza Santa Maria Novella 7</span>
         </div>
       </div>
@@ -690,9 +812,8 @@
         <div class="day-date">June 2, 2026 · Florence → Tuscany</div>
         <div class="day-title">Florence Day & Drive to Tuscany</div>
         <div class="day-activities">
-          <span class="activity-tag sight">😴 10–11 AM — Sleep in (jet lag)</span>
-          <span class="activity-tag food">🥐 Breakfast at The Place Firenze</span>
-          <span class="activity-tag sight">🏛 1:00 PM — Uffizi Gallery</span>
+          <span class="activity-tag food">🥐 9:00 AM — Breakfast at The Place Firenze</span>
+          <span class="activity-tag sight">🏛 11:30 AM — Uffizi Gallery + Vasari Corridor</span>
           <span class="activity-tag sight">🚶 Walk Florence (Lia's suggestions)</span>
           <span class="activity-tag food">🍦 Vivoli — affogato</span>
           <span class="activity-tag food">🍸 Aperitivo</span>
@@ -700,10 +821,9 @@
           <span class="activity-tag food">🥪 All'Antico / Panino Toscana — paninis</span>
           <span class="activity-tag food">🍝 Trattoria Zazà — carbonara</span>
           <span class="activity-tag travel">🏨 4:00 PM — Check out of hotel</span>
-          <span class="activity-tag travel">🚕 Uber to Firenze Peretola Airport</span>
-          <span class="activity-tag travel">🚗 4:00 PM — Pick up rental car</span>
-          <span class="activity-tag travel">🛣 ~1hr 15min drive</span>
-          <span class="activity-tag sight">📍 5:15 PM — Arrive Sinalunga Airbnb, Tuscany</span>
+          <span class="activity-tag travel">🚕 Uber to Firenze Peretola Airport → pick up rental car</span>
+          <span class="activity-tag travel">🛣 ~1hr 15min drive to Sinalunga</span>
+          <span class="activity-tag sight">📍 5:15 PM — Arrive Airbnb, Località Rigomagno, Sinalunga</span>
         </div>
       </div>
     </div>
@@ -718,9 +838,10 @@
       <div class="day-dot"></div>
       <div class="day-content">
         <div class="day-date">June 3, 2026 · Tuscany</div>
-        <div class="day-title">First Full Day in Tuscany</div>
+        <div class="day-title">First Full Day — Wine Drive Day</div>
         <div class="day-activities">
-          <span class="activity-tag food">🍷 Wine tasting in the hills</span>
+          <span class="activity-tag sight">🚗 Tuscany Wine Drive — <a href="https://www.tuscanywinedrive.com/" target="_blank" style="color:var(--terracotta)">tuscanywinedrive.com</a></span>
+          <span class="activity-tag food">🍷 Montemercurio — afternoon tasting (~5 min from Lupaia)</span>
           <span class="activity-tag food">🍽 8:00 PM — Dinner @ Lupaia Restaurant</span>
           <span class="activity-tag sight">📍 Località Lupaia 74, Torrita Di Siena</span>
         </div>
@@ -729,18 +850,50 @@
 
     <div class="day-card">
       <div class="day-number">
-        <div class="day-num-big">5–7</div>
-        <div class="day-num-label">June 4–6</div>
+        <div class="day-num-big">5</div>
+        <div class="day-num-label">June 4</div>
       </div>
       <div class="day-dot"></div>
       <div class="day-content">
-        <div class="day-date">June 4–6, 2026 · Tuscany</div>
-        <div class="day-title">Tuscany Days</div>
+        <div class="day-date">June 4, 2026 · Tuscany</div>
+        <div class="day-title">Antinori Chianti Classico</div>
         <div class="day-activities">
-          <span class="activity-tag food">🍷 Wine tasting (x1000)</span>
-          <span class="activity-tag food">🍝 Pasta making class</span>
-          <span class="activity-tag sight">🏰 Villages & countryside</span>
-          <span class="activity-tag sight">🫒 Rolling hills & vineyards</span>
+          <span class="activity-tag food">🍷 Antinori nel Chianti Classico — The Tinaia Tour</span>
+          <span class="activity-tag sight">📍 Val di Pesa, Chianti (~1 hr from Sinalunga)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">6</div>
+        <div class="day-num-label">June 5</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 5, 2026 · Tuscany</div>
+        <div class="day-title">Poliziano Winery</div>
+        <div class="day-activities">
+          <span class="activity-tag food">🍷 2:30 PM — Poliziano Winery tasting</span>
+          <span class="activity-tag sight">📍 Via Fontago 1, Montepulciano</span>
+          <span class="activity-tag sight">🏘 Explore Montepulciano town</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">7</div>
+        <div class="day-num-label">June 6</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 6, 2026 · Tuscany</div>
+        <div class="day-title">Olive Oil Day</div>
+        <div class="day-activities">
+          <span class="activity-tag sight">🫒 Olive oil tasting experience</span>
+          <span class="activity-tag sight">Fattoria di Maiano or similar producer</span>
+          <span class="activity-tag sight">🏡 Explore Pienza or nearby villages</span>
         </div>
       </div>
     </div>
@@ -762,6 +915,7 @@
           <span class="activity-tag travel">🚘 Private driver: Salerno → Monastero Santa Rosa</span>
           <span class="activity-tag sight">🏨 3:00 PM — Check in: Monastero Santa Rosa</span>
           <span class="activity-tag sight">📍 Via Roma 2, Conca dei Marini</span>
+          <span class="activity-tag food">🍽 7:30 PM — Dinner @ Ristorante il Refettorio</span>
         </div>
       </div>
     </div>
@@ -776,10 +930,12 @@
       <div class="day-dot"></div>
       <div class="day-content">
         <div class="day-date">June 8, 2026 · Conca dei Marini</div>
-        <div class="day-title">Monastero Santa Rosa</div>
+        <div class="day-title">Monastero Santa Rosa — Spa Day</div>
         <div class="day-activities">
-          <span class="activity-tag sight">🌊 Amalfi Coast views</span>
-          <span class="activity-tag sight">🏛 Explore Conca dei Marini</span>
+          <span class="activity-tag sight">🚌 Daily shuttle service to Amalfi (until midnight)</span>
+          <span class="activity-tag sight">♾ Heated infinity pool</span>
+          <span class="activity-tag sight">🧖 Thermal Spa — sequential wellness spaces</span>
+          <span class="activity-tag sight">🏋 Outdoor fitness area</span>
           <span class="activity-tag food">🍋 Sfogliatella & limoncello</span>
         </div>
       </div>
@@ -792,30 +948,47 @@
       </div>
       <div class="day-dot"></div>
       <div class="day-content">
-        <div class="day-date">June 9, 2026 · Praiano</div>
-        <div class="day-title">Romantic Stay in Praiano</div>
+        <div class="day-date">June 9, 2026 · Conca dei Marini → Praiano</div>
+        <div class="day-title">Move to Praiano</div>
         <div class="day-activities">
-          <span class="activity-tag sight">📍 Move to Praiano accommodation</span>
-          <span class="activity-tag sight">🌅 Cliffside village life</span>
-          <span class="activity-tag travel">🧗 Steps service booked for luggage</span>
+          <span class="activity-tag travel">🏨 12:00 PM — Check out Monastero Santa Rosa</span>
+          <span class="activity-tag travel">📍 3:00 PM — Check in: Romantic Stay, Praiano</span>
+          <span class="activity-tag sight">🌅 Cliffside village exploration</span>
+          <span class="activity-tag travel">🧗 Steps service arranged for luggage</span>
         </div>
       </div>
     </div>
 
     <div class="day-card">
       <div class="day-number">
-        <div class="day-num-big">11–12</div>
-        <div class="day-num-label">June 10–11</div>
+        <div class="day-num-big">11</div>
+        <div class="day-num-label">June 10</div>
       </div>
       <div class="day-dot"></div>
       <div class="day-content">
-        <div class="day-date">June 10–11, 2026 · Amalfi</div>
-        <div class="day-title">Amalfi Days</div>
+        <div class="day-date">June 10, 2026 · Amalfi Coast</div>
+        <div class="day-title">🚤 Boat Day!</div>
         <div class="day-activities">
-          <span class="activity-tag travel">⛵ Boat day along the coast</span>
-          <span class="activity-tag sight">🍋 Positano day trip</span>
-          <span class="activity-tag food">🐟 Fresh seafood</span>
-          <span class="activity-tag sight">🌅 Golden hour sunsets</span>
+          <span class="activity-tag travel">⛵ Full day boat charter along the coast</span>
+          <span class="activity-tag sight"><a href="https://www.laboa.com/" target="_blank" style="color:var(--water)">La Boa</a> · <a href="https://www.amalfiluxurycharter.it/" target="_blank" style="color:var(--water)">Amalfi Luxury Charter</a> · <a href="https://lumacharter.com/en/choose-boat-tour-excursion-amalfi-coast-capri/" target="_blank" style="color:var(--water)">Luma Charter</a></span>
+          <span class="activity-tag sight">🏊 Swimming in grottos</span>
+          <span class="activity-tag sight">🍋 Positano views from the water</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-number">
+        <div class="day-num-big">12</div>
+        <div class="day-num-label">June 11</div>
+      </div>
+      <div class="day-dot"></div>
+      <div class="day-content">
+        <div class="day-date">June 11, 2026 · Praiano</div>
+        <div class="day-title">Amalfi Exploration</div>
+        <div class="day-activities">
+          <span class="activity-tag sight">🌊 Beach time & cliff walks</span>
+          <span class="activity-tag food">🍽 7:30 PM — Dinner @ Il Pirata</span>
         </div>
       </div>
     </div>
@@ -827,11 +1000,11 @@
       </div>
       <div class="day-dot"></div>
       <div class="day-content">
-        <div class="day-date">June 12, 2026 · Amalfi</div>
-        <div class="day-title">Last Night on the Coast</div>
+        <div class="day-date">June 12, 2026 · Praiano</div>
+        <div class="day-title">Cooking Class — Last Full Day</div>
         <div class="day-activities">
-          <span class="activity-tag sight">🌊 Final beach time</span>
-          <span class="activity-tag food">🍽 7:30 PM — Dinner @ Il Pirata</span>
+          <span class="activity-tag food">🍝 Cooking class @ Sergio's Home</span>
+          <span class="activity-tag sight">🌅 Final sunset on the coast</span>
         </div>
       </div>
     </div>
@@ -847,9 +1020,8 @@
         <div class="day-title">Arrivederci, Italia</div>
         <div class="day-activities">
           <span class="activity-tag travel">✈ 11:40 AM — Depart Naples (NAP)</span>
-          <span class="activity-tag travel">Aer Lingus 451 → Dublin</span>
+          <span class="activity-tag travel">Aer Lingus 451 → Dublin 4:45 PM</span>
           <span class="activity-tag travel">Aer Lingus 107 → NYC</span>
-          <span class="activity-tag travel">🛬 4:45 PM — Arrive Dublin (connecting)</span>
         </div>
       </div>
     </div>
@@ -963,6 +1135,15 @@
     <h2 class="section-title">The <em>Checklist</em></h2>
   </div>
   <div class="checklist-grid" id="checklistGrid"></div>
+</div>
+
+<!-- PACKING SECTION -->
+<div id="packing" class="section">
+  <div class="section-header">
+    <p class="section-label">Don't forget a thing</p>
+    <h2 class="section-title">Packing <em>List</em></h2>
+  </div>
+  <div class="packing-grid" id="packingGrid"></div>
 </div>
 
 <!-- EXCURSIONS SECTION -->
@@ -1191,6 +1372,137 @@
   }
 
   buildChecklist();
+  // PACKING LIST DATA
+  const packingData = [
+    {
+      icon: '🛒',
+      category: 'Buy Now — Travel Essentials',
+      items: [
+        { text: 'Airalo eSIM', note: 'Buy before you leave, activate on arrival in Florence' },
+        { text: 'Travel credit card (no foreign fees)', note: 'Chase Sapphire or similar — apply ASAP' },
+        { text: 'Euros cash', note: 'Get at airport ATM on arrival' },
+        { text: 'Travel insurance', note: 'Look into Allianz' },
+        { text: 'Universal adapter', note: 'Italy uses Type F plugs — bring 2' },
+        { text: 'Packing cubes' },
+        { text: 'Luggage locks (TSA-approved)' },
+        { text: 'Portable charger / power bank', note: '10,000+ mAh' },
+      ]
+    },
+    {
+      icon: '📄',
+      category: 'Documents & Finance',
+      items: [
+        { text: 'Passport', note: 'Must be valid 6+ months past June 13' },
+        { text: 'Printed flight & hotel confirmations' },
+        { text: 'Travel insurance card (physical copy)' },
+        { text: 'Emergency contacts list', note: 'Written, not just in your phone' },
+        { text: 'Copies of passport', note: 'One at home, one packed separately' },
+        { text: 'Credit + debit cards', note: 'Notify your bank before you travel' },
+      ]
+    },
+    {
+      icon: '👗',
+      category: 'Clothes',
+      items: [
+        { text: 'Linen / breathable dresses (3–4)', note: 'Tuscany is 75–85°F in June' },
+        { text: 'Nice dinner outfits (2)', note: 'Florence & Amalfi restaurants are dressy' },
+        { text: 'Light cardigan or wrap', note: 'For evenings and churches' },
+        { text: 'Comfortable walking sandals', note: 'Break in before the trip!' },
+        { text: 'Cute sneakers', note: 'Florence involves a lot of walking' },
+        { text: 'One pair of heels' },
+        { text: 'Casual day outfits (4–5)', note: 'Wineries, markets, drives' },
+        { text: 'Swimsuits (2)' },
+        { text: 'Coverup / beach dress' },
+        { text: 'Pajamas (2–3)' },
+        { text: 'Underwear & socks (10 pairs each)' },
+        { text: 'Sun hat' },
+        { text: 'Sunglasses', note: 'Polarized best near water' },
+      ]
+    },
+    {
+      icon: '💊',
+      category: 'Health & Toiletries',
+      items: [
+        { text: 'Sunscreen SPF 50+' },
+        { text: 'Melatonin / jet lag meds', note: 'You land at noon — staying awake Day 1 is key' },
+        { text: 'Motion sickness meds', note: 'Amalfi Coast roads are very winding' },
+        { text: 'Ibuprofen / Tylenol' },
+        { text: 'Pepto-Bismol' },
+        { text: 'Blister bandages', note: 'Cobblestones + sandals = guaranteed blisters' },
+        { text: 'Prescription meds', note: 'Bring extra' },
+        { text: 'Travel-size toiletries' },
+        { text: 'Hand sanitizer' },
+        { text: 'Fragrance' },
+      ]
+    },
+    {
+      icon: '🇮🇹',
+      category: 'Italy-Specific',
+      items: [
+        { text: 'Reusable water bottle' },
+        { text: 'Tote bag', note: 'For markets, wine purchases, beach days' },
+        { text: 'Crossbody purse (secure closure)', note: 'Pickpockets in tourist areas' },
+        { text: 'Zip-up jacket', note: 'Amalfi evenings on the water get breezy' },
+        { text: 'Day pack / backpack', note: 'For excursions and winery visits' },
+        { text: 'Camera or phone lens attachment' },
+        { text: 'Snacks for travel days' },
+      ]
+    },
+  ];
+
+  const packingSaved = JSON.parse(localStorage.getItem('italyPacking') || '{}');
+
+  function buildPacking() {
+    const grid = document.getElementById('packingGrid');
+    if (!grid) return;
+
+    const totalItems = packingData.reduce((a, c) => a + c.items.length, 0);
+    const packedItems = packingData.reduce((a, c, ci) =>
+      a + c.items.filter((_, ii) => packingSaved[`${ci}-${ii}`]).length, 0);
+    const pct = Math.round(packedItems / totalItems * 100);
+
+    let summaryHTML = `
+      <div class="packing-summary" style="grid-column: 1/-1">
+        <div>
+          <div class="packing-summary-label">Items Packed</div>
+          <div class="packing-summary-count">${packedItems} / ${totalItems}</div>
+          <div class="packing-master-bar"><div class="packing-master-fill" style="width:${pct}%"></div></div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--sand);font-weight:300">${pct}%</div>
+      </div>`;
+
+    grid.innerHTML = summaryHTML + packingData.map((cat, ci) => {
+      const catPacked = cat.items.filter((_, ii) => packingSaved[`${ci}-${ii}`]).length;
+      return `
+        <div class="packing-category">
+          <div class="packing-category-header">
+            <span class="packing-category-icon">${cat.icon}</span>
+            <span class="packing-category-title">${cat.category}</span>
+          </div>
+          ${cat.items.map((item, ii) => `
+            <div class="packing-item ${packingSaved[`${ci}-${ii}`] ? 'packed' : ''}" data-ci="${ci}" data-ii="${ii}">
+              <div class="check-box">${packingSaved[`${ci}-${ii}`] ? '✓' : ''}</div>
+              <span class="packing-text">${item.text}${item.note ? `<span class="packing-note">${item.note}</span>` : ''}</span>
+            </div>
+          `).join('')}
+          <div class="packing-progress">
+            <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${Math.round(catPacked/cat.items.length*100)}%"></div></div>
+            <div class="progress-text">${catPacked}/${cat.items.length} packed</div>
+          </div>
+        </div>`;
+    }).join('');
+
+    grid.querySelectorAll('.packing-item').forEach(el => {
+      el.addEventListener('click', () => {
+        const key = `${el.dataset.ci}-${el.dataset.ii}`;
+        packingSaved[key] = !packingSaved[key];
+        localStorage.setItem('italyPacking', JSON.stringify(packingSaved));
+        buildPacking();
+      });
+    });
+  }
+
+  buildPacking();
 </script>
 
 </body>
