@@ -596,7 +596,7 @@
 
   .packing-category-icon { font-size: 1.2rem; }
 
-  .-category-title {
+  .packing-category-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem;
     font-weight: 400;
@@ -692,6 +692,26 @@
     border-radius: 2px;
     transition: width 0.4s;
   }
+  /* MAP */
+  .map-container {
+    width: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(58,50,40,0.1);
+  }
+
+  .map-hint {
+    font-size: 0.72rem;
+    color: var(--terracotta);
+    letter-spacing: 0.05em;
+    margin-top: 0.75rem;
+    opacity: 0.8;
+  }
+
+  /* The map section itself needs no padding-top since the iframe fills it */
+  #map.section {
+    padding-bottom: 4rem;
+  }
 
 </style>
 </head>
@@ -752,6 +772,7 @@
   <button class="nav-tab" onclick="showSection('packing', this)">Packing</button>
   <button class="nav-tab" onclick="showSection('excursions', this)">Excursions</button>
   <button class="nav-tab" onclick="showSection('tips', this)">Tips & Phrases</button>
+  <button class="nav-tab" onclick="showSection('map', this)">🗺 Map</button>
 </nav>
 
 <!-- ITINERARY SECTION -->
@@ -1237,6 +1258,26 @@
   </div>
 </div>
 
+<!-- MAP SECTION -->
+<div id="map" class="section">
+  <div class="section-header">
+    <p class="section-label">Your full journey</p>
+    <h2 class="section-title">Interactive <em>Map</em></h2>
+  </div>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/d/embed?mid=1pI9VqXT5dfxDjZ_BazxDFILe077P-Pg&ll=42.22905653664812,12.974225000000015&z=7"
+      width="100%"
+      height="600"
+      style="border:0; border-radius:2px;"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <p class="map-hint">💡 Click any pin to explore locations. Use scroll to zoom.</p>
+  </div>
+</div>
+
 <footer>
   <div class="footer-title">Buon viaggio, amore</div>
   <p>Emily & Estee · Italy Honeymoon · May–June 2026</p>
@@ -1386,7 +1427,7 @@
         { text: 'Packing cubes' },
         { text: 'Luggage locks (TSA-approved)' },
         { text: 'Portable charger / power bank', note: '10,000+ mAh' },
-        { text: 'Large suitcase' },
+        { text: 'Suitecase' },
       ]
     },
     {
